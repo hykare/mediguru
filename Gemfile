@@ -78,3 +78,7 @@ gem "rack-cors", "~> 2.0"
 gem "devise", "~> 4.9"
 
 gem "devise-jwt", "~> 0.10.0"
+
+group :development, :test do
+  gem "dotenv-rails"
+end
