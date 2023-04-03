@@ -2,6 +2,7 @@ class Doctors::RegistrationsController < Devise::RegistrationsController
   respond_to :json
   protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
+  # include ActionController::MimeResponds
 
   private
 
