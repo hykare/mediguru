@@ -3,4 +3,6 @@ Rails.application.routes.draw do
     sessions: 'doctors/sessions',
     registrations: 'doctors/registrations'
   }
+
+  resources :specialties, only: [:index]
 end
