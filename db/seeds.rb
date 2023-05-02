@@ -1,15 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# === load specialties from input file
 
-Specialty.delete_all
+# Specialty.delete_all
+# specialties = File.readlines('lib/specialties.txt')
+# specialties.each do |specialty|
+#   Specialty.create name: specialty.chomp
+# end
 
-specialties = File.readlines('lib/specialties.txt')
+# === create doctors
+Doctor.delete_all
 
-specialties.each do |specialty|
-  Specialty.create name: specialty.chomp
+10.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  # email = Faker::Internet.email
+  email = "#{first_name}_#{last_name}@email.com"
+  password = '123123'
+  Doctor.create email:, password:, first_name:, last_name:
 end
