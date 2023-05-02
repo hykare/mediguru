@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :patients
   devise_for :doctors, defaults: { format: :json }, controllers: {
     sessions: 'doctors/sessions',
     registrations: 'doctors/registrations'
