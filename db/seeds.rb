@@ -9,11 +9,13 @@
 # === create doctors
 Doctor.delete_all
 
-10.times do
+5.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   # email = Faker::Internet.email
   email = "#{first_name}_#{last_name}@email.com"
   password = '123123'
-  Doctor.create email:, password:, first_name:, last_name:
+  specialty = Specialty.first
+
+  specialty.doctors.create(email:, password:, first_name:, last_name:)
 end

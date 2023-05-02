@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_084348) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_02_093225) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,8 +24,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_084348) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.bigint "specialty_id"
     t.index ["email"], name: "index_doctors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
+    t.index ["specialty_id"], name: "index_doctors_on_specialty_id"
   end
 
   create_table "jwt_denylist", force: :cascade do |t|
@@ -51,4 +53,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_084348) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "doctors", "specialties"
 end
