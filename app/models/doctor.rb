@@ -1,5 +1,6 @@
 class Doctor < ApplicationRecord
   belongs_to :specialty
+  has_many :appointments
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
