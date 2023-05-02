@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   }
 
   resources :specialties, only: [:index]
+  resources :appointments, only: [:index]
 end
