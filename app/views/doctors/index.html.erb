@@ -1,0 +1,8 @@
+<h2>Wyszukaj lekarza</h2>
+
+<%= form_with(url: doctors_path, method: :get) do |form| %>
+  <%= form.text_field :query %>
+  <%= form.submit 'Szukaj' %>
+<% end %>
+
+<%= render @doctors %>
