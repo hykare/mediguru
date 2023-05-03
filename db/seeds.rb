@@ -16,8 +16,9 @@
 #   email = "#{first_name}_#{last_name}@email.com"
 #   password = '123123'
 #   specialty = Specialty.first
+#   description = Faker::Lorem.paragraphs(number: 5).join(" ")
 
-#   specialty.doctors.create(email:, password:, first_name:, last_name:)
+#   specialty.doctors.create(email:, password:, first_name:, last_name:, description:)
 # end
 
 # === create patients
