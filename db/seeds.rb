@@ -11,10 +11,12 @@ end
   FactoryBot.create(:patient)
 end
 
-# reserve some appointments
 Doctor.all.each do |doctor|
+  # reserve some appointments
   doctor.appointments.sample(4).each do |appointment|
     appointment.patient_id = Patient.ids.sample
     appointment.save
   end
+
+  5.times { FactoryBot.create(:review, doctor:) }
 end
