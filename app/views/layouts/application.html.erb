@@ -20,7 +20,7 @@
           <%= current_patient.first_name %></b>
         </p>
         <%= link_to 'konto', patient_path(current_patient) %>
-        <%= link_to 'moje wizyty', appointments_path %>
+        <%= link_to 'moje wizyty', patient_appointments_path %>
         <%= link_to 'wyloguj', destroy_patient_session_path, data: { turbo_method: :delete } %>
       <% else %>
         <%= link_to 'sign in', new_patient_session_path %>
