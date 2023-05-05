@@ -1,6 +1,6 @@
 class Appointment < ApplicationRecord
   belongs_to :doctor
-  belongs_to :patient
+  belongs_to :patient, optional: true
 
   scope :on_date, lambda { |date = Date.today|
     if date.is_a? String
