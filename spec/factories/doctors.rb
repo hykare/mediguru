@@ -7,6 +7,10 @@ FactoryBot.define do
     description { Faker::Lorem.paragraphs(number: 5).join(' ') }
     specialty { Specialty.first(10).sample }
 
+    after(:create) do |doctor|
+      create(:schedule, doctor:)
+    end
+
     factory :doctor_with_appointments do
       after(:create) do |doctor|
         10.times do |i|
