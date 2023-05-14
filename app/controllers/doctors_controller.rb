@@ -2,8 +2,14 @@ class DoctorsController < ApplicationController
   before_action :authenticate_doctor!, only: [:update]
 
   def index
-    specialty = Specialty.find_by name: params[:query]
-    @doctors = Doctor.where(specialty:)
+    if params[:query].present?
+      specialty = Specialty.find_by name: params[:query]
+      @doctors = Doctor.where(specialty:)
+    elsif params[:commit]
+      @doctors = Doctor.all
+    else
+      @doctors = []
+    end
   end
 
   def show
