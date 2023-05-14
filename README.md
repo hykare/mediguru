@@ -2,21 +2,21 @@
 
 ### devise (doctors)
 
-GET      /doctors/sign_in
-POST     /doctors/sign_in
-DELETE   /doctors/sign_out
-GET      /doctors/password/new
-GET      /doctors/password/edit
-PATCH    /doctors/password
-PUT      /doctors/password
-POST     /doctors/password
-GET      /doctors/cancel
-GET      /doctors/sign_up
-GET      /doctors/edit
-PATCH    /doctors
-PUT      /doctors
-DELETE   /doctors
-POST     /doctors
+`GET`      `/doctors/sign_in`  
+`POST`     `/doctors/sign_in`  
+`DELETE`   `/doctors/sign_out`  
+`GET`      `/doctors/password/new`  
+`GET`      `/doctors/password/edit`  
+`PATCH`    `/doctors/password`  
+`PUT`      `/doctors/password`  
+`POST`     `/doctors/password`  
+`GET`      `/doctors/cancel`  
+`GET`      `/doctors/sign_up`  
+`GET`      `/doctors/edit`  
+`PATCH`    `/doctors`  
+`PUT`      `/doctors`  
+`DELETE`   `/doctors`  
+`POST`     `/doctors`  
 
 `GET` `/specialties`  
 list of medical specialties
