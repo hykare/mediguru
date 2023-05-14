@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :appointments, only: [:index]
   get '/patient_appointments', to: 'appointments#patient_index'
   resources :doctors, only: [:index, :show]
+  put '/doctor', to: 'doctors#update'
+
   resources :patients, only: [:show, :edit]
   put '/schedule', to: 'schedules#update'
   get '/schedule', to: 'schedules#show'
