@@ -15,6 +15,6 @@ class Doctors::RegistrationsController < Devise::RegistrationsController
   end
 
   def register_failed
-    render json: { message: 'Sign up failure.' }
+    render json: { message: "Sign up failure. #{resource.errors.full_messages.to_sentence}" }
   end
 end
