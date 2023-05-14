@@ -64,10 +64,10 @@ group :development do
   # gem "spring"
 end
 
+gem "factory_bot_rails"
 
 group :development, :test do
   gem "rspec-rails"
-  gem "factory_bot_rails"
   gem "capybara"
   gem "webdrivers"
   gem "faker"
@@ -82,3 +82,4 @@ gem "devise-jwt", "~> 0.10.0"
 group :development, :test do
   gem "dotenv-rails"
 end
+gem "dockerfile-rails", ">= 1.2", :group => :development
