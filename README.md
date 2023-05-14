@@ -16,7 +16,11 @@
 `PATCH`    `/doctors`  
 `PUT`      `/doctors`  
 `DELETE`   `/doctors`  
+
 `POST`     `/doctors`  
+Sign up for a new account  
+params: email, password, specialty_id
+
 
 `GET` `/specialties`  
 list of medical specialties
@@ -39,8 +43,16 @@ auth token
 auth token  
 params: json schedule:
 ```json
-schedule: 
-  monday: { ... }
+'"schedule": {
+  "monday": [ {"hour":8,"minute":0},{"hour":8,"minute":15},{"hour":8,"minute":30} ],
+  "tuesday": [ {"hour":8,"minute":0},{"hour":8,"minute":15},{"hour":8,"minute":30} ],
+  "wednesday": [],
+  "thursday": [],
+  "friday": [],
+  "saturday": [],
+  "sunday": [],
+}
+'
 ```
 
 ## Deployment
