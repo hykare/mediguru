@@ -1,46 +1,48 @@
 ## Endpoints
 
-### devise (doctors)
-
-`GET`      `/doctors/sign_in`  
-`POST`     `/doctors/sign_in`  
-`DELETE`   `/doctors/sign_out`  
-`GET`      `/doctors/password/new`  
-`GET`      `/doctors/password/edit`  
-`PATCH`    `/doctors/password`  
-`PUT`      `/doctors/password`  
-`POST`     `/doctors/password`  
-`GET`      `/doctors/cancel`  
-`GET`      `/doctors/sign_up`  
-`GET`      `/doctors/edit`  
-`PATCH`    `/doctors`  
-`PUT`      `/doctors`  
-`DELETE`   `/doctors`  
-
 `POST`     `/doctors`  
-Sign up for a new account  
+Sign up for a new account.  
 params: email, password, specialty_id
 
+`DELETE`   `/doctors`  
+Delete an account.  
+Authorization: Bearer {doctor auth token}
 
-`GET` `/specialties`  
-list of medical specialties
+`POST`   `/doctors/sign_in`  
+params: email, password
+=> auth token
 
-`GET` `/doctors`  
-list of all doctors
+`DELETE`   `/doctors/sign_out`  
+Authorization: Bearer {doctor auth token}
 
 `GET` `/doctor`  
-doctor info
-params: auth token
+Get doctor profile information.  
+Authorization: Bearer {doctor auth token}  
+=> first_name, last_name, description, specialty
 
-`GET` `/appointments`  
-params: on_date (defaults to today)
+`PUT` `/doctors`  
+Update doctor information.
 
+params: first_name, last_name, description, specialty_id
 
 `GET` `/schedule`  
-auth token
+Authorization: Bearer {doctor auth token}  
+=>
+```json
+'"schedule": {
+  "monday": [ {"hour":8,"minute":0},{"hour":8,"minute":15},{"hour":8,"minute":30} ],
+  "tuesday": [ {"hour":8,"minute":0},{"hour":8,"minute":15},{"hour":8,"minute":30} ],
+  "wednesday": [],
+  "thursday": [],
+  "friday": [],
+  "saturday": [],
+  "sunday": [],
+}'
+```
 
 `PUT` `/schedule`  
-auth token  
+Authorization: Bearer {doctor auth token}
+
 params: json schedule:
 ```json
 '"schedule": {
@@ -51,9 +53,16 @@ params: json schedule:
   "friday": [],
   "saturday": [],
   "sunday": [],
-}
-'
+}'
 ```
+
+`GET` `/appointments`  
+Authorization: Bearer {doctor auth token}   
+params: on_date (optional, defaults to today)  
+=> ...
+
+`GET` `/specialties`  
+=> ...
 
 ## Deployment
 
@@ -74,15 +83,21 @@ then run:
 fly machines start <machine-id> --app <db app name>
 ```
 
-## Accessing Rails console
+### Accessing Rails console
 
 ```
 flyctl ssh console
 /rails/bin/rails <rails command>
 ```
 
-## Managing the database
+### Managing the database
 Connect to the postgres database and run `psql` commands with:
 ```
 flyctl pg connect -a mediguru-db
+```
+
+### Turning the production app off
+
+```
+flyctl scale count 0
 ```
