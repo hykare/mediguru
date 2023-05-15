@@ -66,7 +66,14 @@ Authorization: Bearer {doctor auth token}
 => ...
 
 `GET` `/specialties`  
-=> ...
+=>
+```json
+[
+  {"name": "ginekolog", "id": 1},
+  {"name": "psycholog", "id": 2},
+  {"name": "ortopeda", "id": 3},
+]
+```
 
 ## Deployment
 
