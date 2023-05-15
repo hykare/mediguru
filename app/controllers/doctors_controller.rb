@@ -1,5 +1,5 @@
 class DoctorsController < ApplicationController
-  before_action :authenticate_doctor!, only: [:update]
+  before_action :authenticate_doctor!, only: [:update, :info]
 
   def index
     if params[:query].present?
@@ -14,6 +14,10 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find params[:id]
+  end
+
+  def info
+    render json: current_doctor
   end
 
   def update

@@ -9,4 +9,13 @@ class Doctor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
+
+  def as_json(_options = {})
+    {
+      first_name:,
+      last_name:,
+      specialty: specialty.name,
+      description:
+    }
+  end
 end

@@ -18,7 +18,10 @@ Authorization: Bearer {doctor auth token}
 `GET` `/doctor`  
 Get doctor profile information.  
 Authorization: Bearer {doctor auth token}  
-=> first_name, last_name, description, specialty
+=>
+```json
+{"first_name": "Blanche", "last_name": "Christiansen", "specialty": "psycholog", "description": "Est quae officiis. Ut non enim..."}
+```
 
 `PUT` `/doctors`  
 Update doctor information.
