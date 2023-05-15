@@ -64,6 +64,13 @@ params: on_date (optional, defaults to today)
 `GET` `/reviews`  
 Authorization: Bearer {doctor auth token}   
 => ...
+```json
+[
+  {"score": 3, "author": "Ellis", "posted_on": "05.11.2023", "body": "Harum ex rerum. Distinctio... "},
+  {"score": 5,"author": "Carroll", "posted_on": "05.11.2023", "body": "Est quae officiis. Ut non enim... "},
+  {"score": 7,"author": "Merle", "posted_on": "05.11.2023", "body": "Rerum ut soluta. Eum... "}
+]
+```
 
 `GET` `/specialties`  
 =>
