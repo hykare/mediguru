@@ -61,6 +61,10 @@ Authorization: Bearer {doctor auth token}
 params: on_date (optional, defaults to today)  
 => ...
 
+`GET` `/reviews`  
+Authorization: Bearer {doctor auth token}   
+=> ...
+
 `GET` `/specialties`  
 => ...
 
