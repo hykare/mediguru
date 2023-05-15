@@ -29,7 +29,7 @@ params: first_name, last_name, description, specialty_id
 Authorization: Bearer {doctor auth token}  
 =>
 ```json
-'"schedule": {
+"schedule": {
   "monday": [ {"hour":8,"minute":0},{"hour":8,"minute":15},{"hour":8,"minute":30} ],
   "tuesday": [ {"hour":8,"minute":0},{"hour":8,"minute":15},{"hour":8,"minute":30} ],
   "wednesday": [],
@@ -37,7 +37,7 @@ Authorization: Bearer {doctor auth token}
   "friday": [],
   "saturday": [],
   "sunday": [],
-}'
+}
 ```
 
 `PUT` `/schedule`  
@@ -45,7 +45,7 @@ Authorization: Bearer {doctor auth token}
 
 params: json schedule:
 ```json
-'"schedule": {
+"schedule": {
   "monday": [ {"hour":8,"minute":0},{"hour":8,"minute":15},{"hour":8,"minute":30} ],
   "tuesday": [ {"hour":8,"minute":0},{"hour":8,"minute":15},{"hour":8,"minute":30} ],
   "wednesday": [],
@@ -53,7 +53,7 @@ params: json schedule:
   "friday": [],
   "saturday": [],
   "sunday": [],
-}'
+}
 ```
 
 `GET` `/appointments`  
