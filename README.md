@@ -58,12 +58,20 @@ params: json schedule:
 
 `GET` `/appointments`  
 Authorization: Bearer {doctor auth token}   
-params: on_date (optional, defaults to today)  
-=> ...
+params: `on_date` (optional, defaults to today). Format: anything that `Date::parse` understands, 'DD-MM-YYYY' works.  
+=>
+```json
+[
+  {"time": "2023-05-11T08:30:00.000Z", "duration": 900, "patient_name": "Lyndon Wolff", "patient_email": "lyndon_wolff@email.com"},
+  {"time": "2023-05-11T09:15:00.000Z", "duration": 900, "patient_name": "Maura Fisher", "patient_email": "maura_fisher@email.com"},
+  {"time": "2023-05-11T10:15:00.000Z", "duration": 900, "patient_name": "Merle Collins", "patient_email": "merle_collins@email.com"},
+  {"time": "2023-05-11T08:00:00.000Z", "duration": 900, "patient_name": "Rex Johnson", "patient_email": "rex_johnson@email.com"}
+]
+```
 
 `GET` `/reviews`  
 Authorization: Bearer {doctor auth token}   
-=> ...
+=>
 ```json
 [
   {"score": 3, "author": "Ellis", "posted_on": "05.11.2023", "body": "Harum ex rerum. Distinctio... "},

@@ -10,11 +10,14 @@ class Appointment < ApplicationRecord
     end
     where('start_time >= ? AND start_time < ?', date.yesterday, date.tomorrow)
   }
+  scope :reserved, -> { where('patient_id IS NOT NULL') }
 
   def as_json(_options = {})
-    { patient: "#{patient.first_name} #{patient.last_name}",
-      doctor: "#{doctor.first_name} #{doctor.last_name}",
+    {
       time: start_time,
-      duration: }
+      duration:,
+      patient_name: "#{patient.first_name} #{patient.last_name}",
+      patient_email: patient.email
+    }
   end
 end

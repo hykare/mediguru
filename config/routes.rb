@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   }
 
   resources :specialties, only: [:index]
-  resources :appointments, only: [:index]
+  get '/appointments', to: 'appointments#index'
   get '/patient_appointments', to: 'appointments#patient_index'
+
   resources :doctors, only: [:index, :show]
   put '/doctor', to: 'doctors#update'
 
