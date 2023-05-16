@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   put '/schedule', to: 'schedules#update'
   get '/schedule', to: 'schedules#show'
 
-  get '/reviews', to: 'reviews#index'
+  resources :reviews, only: [:index, :create]
 end

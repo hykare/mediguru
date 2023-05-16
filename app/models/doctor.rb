@@ -22,4 +22,8 @@ class Doctor < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def average_score
+    reviews.average(:score).round(1)
+  end
 end
