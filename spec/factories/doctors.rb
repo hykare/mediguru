@@ -15,7 +15,7 @@ FactoryBot.define do
       after(:create) do |doctor|
         10.times do |i|
           duration = 15.minutes
-          shift_start_time = Date.today + 8.hours
+          shift_start_time = Date.tomorrow + 8.hours
           create(:appointment, doctor:, duration:, start_time: shift_start_time + i * duration)
         end
       end
