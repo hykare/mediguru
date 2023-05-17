@@ -6,7 +6,7 @@ class Doctors::SessionsController < Devise::SessionsController
   private
 
   def respond_with(_resource, _opts = {})
-    render json: { message: 'Logged.', flash:, session:}, status: :ok
+    render json: { message: 'Signed in successfully' }, status: :ok
   end
 
   def respond_to_on_destroy
@@ -14,10 +14,10 @@ class Doctors::SessionsController < Devise::SessionsController
   end
 
   def log_out_success
-    render json: { message: 'Logged out.', flash:, session: }, status: :ok
+    render json: { message: 'Signed out.', flash:, session: }, status: :ok
   end
 
   def log_out_failure
-    render json: { message: 'Logged out failure.', flash:, session:  }, status: :unauthorized
+    render json: { message: 'Sign out failure.', flash:, session:  }, status: :unauthorized
   end
 end
