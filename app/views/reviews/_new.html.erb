@@ -1,9 +1,8 @@
 <div class="block w-full mb-2 px-10 py-6 pb-8 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 text-gray-800 dark:text-white">
 
   <%= form_with url: reviews_path, scope: :review do |form| %>
-    <%= form.hidden_field :patient_id, value: current_patient.id %>
+    <%= form.hidden_field :patient_id, value: current_patient&.id %>
     <%= form.hidden_field :doctor_id, value: doctor.id %>
-
 
     <%= form.label :body, 'Wystaw opinię o tym lekarzu',
       class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"
