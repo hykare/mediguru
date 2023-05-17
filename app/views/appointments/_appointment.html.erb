@@ -1,8 +1,10 @@
-<div>
-  <span>
-    <%= "#{appointment.doctor.first_name} #{appointment.doctor.last_name}" %>
-  </span>
-  <span>
-    <%= appointment.start_time %>
-  </span>
+<div class="w-full mb-2 px-10 py-6 pb-6 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 text-gray-800 dark:text-white">
+  <div class="flex flex-col items-start gap-1">
+    <div>
+      <span class="font-bold mr-2"><%= appointment.date_formatted %></span>
+      <span class="text-gray-700 dark:text-gray-300"><%= appointment.time_formatted %></span>
+    </div>
+    <span class="bg-gray-100 dark:bg-gray-700 rounded-md px-2 pb-1 pt-0.5 text-gray-700 dark:text-gray-300"><%= appointment.doctor.specialty.name %></span>
+    <%= link_to appointment.doctor.full_name, appointment.doctor %>
+  </div>
 </div>

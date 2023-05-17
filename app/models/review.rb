@@ -7,6 +7,6 @@ class Review < ApplicationRecord
   end
 
   def date_formatted
-    created_at.strftime('%m.%d.%Y')
+    created_at.strftime('%d.%m.%Y')
   end
 end

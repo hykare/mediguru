@@ -20,4 +20,12 @@ class Appointment < ApplicationRecord
       patient_email: patient.email
     }
   end
+
+  def date_formatted
+    start_time.strftime('%d.%m.%Y')
+  end
+  
+  def time_formatted
+    start_time.strftime('%k:%M')
+  end
 end
