@@ -24,6 +24,6 @@ class Doctor < ApplicationRecord
   end
 
   def average_score
-    reviews.average(:score).round(1)
+    reviews.average(:score)&.round(1)
   end
 end
