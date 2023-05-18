@@ -1,0 +1,24 @@
+<div class="w-full mb-2 px-10 py-6 pb-10 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700 text-gray-800 dark:text-white">
+  <p class="text-xl font-bold mb-6 text-gray-800 dark:text-white">Umów wizytę</p>
+
+  <div class="flex gap-6">
+    <div class="flex-1">
+      <p class="font-bold mb-2"><%= (Date.today).strftime('%d.%m.%Y') %></p>
+      <% doctor.appointments.on_date(Date.today).chronological.each do |appointment| %>
+        <%= render 'appointments/reservation', appointment: appointment %>
+      <% end %>
+    </div>
+    <div class="flex-1">
+      <p class="font-bold mb-2"><%= (Date.today + 1.day).strftime('%d.%m.%Y') %></p>
+      <% doctor.appointments.on_date(Date.today + 1.day).chronological.each do |appointment| %>
+        <%= render 'appointments/reservation', appointment: appointment %>
+      <% end %>
+    </div>
+    <div class="flex-1">
+      <p class="font-bold mb-2"><%= (Date.today + 2.days).strftime('%d.%m.%Y') %></p>
+      <% doctor.appointments.on_date(Date.today + 2.days).chronological.each do |appointment| %>
+        <%= render 'appointments/reservation', appointment: appointment %>
+      <% end %>
+    </div>
+  </div>
+</div>

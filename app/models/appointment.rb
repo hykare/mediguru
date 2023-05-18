@@ -11,6 +11,8 @@ class Appointment < ApplicationRecord
     where('start_time >= ? AND start_time < ?', date, date.tomorrow)
   }
   scope :reserved, -> { where('patient_id IS NOT NULL') }
+  scope :current, -> { where('start_time > ?', Time.now) }
+  scope :chronological, -> { order(:start_time) }
 
   def as_json(_options = {})
     {
@@ -24,8 +26,20 @@ class Appointment < ApplicationRecord
   def date_formatted
     start_time.strftime('%d.%m.%Y')
   end
-  
+
   def time_formatted
     start_time.strftime('%k:%M')
+  end
+
+  def available?
+    !reserved? and future?
+  end
+
+  def reserved?
+    patient.present?
+  end
+
+  def future?
+    start_time > Time.now
   end
 end
