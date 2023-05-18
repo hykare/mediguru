@@ -8,7 +8,7 @@ class Appointment < ApplicationRecord
     elsif date.nil?
       date = Date.today
     end
-    where('start_time >= ? AND start_time < ?', date.yesterday, date.tomorrow)
+    where('start_time >= ? AND start_time < ?', date, date.tomorrow)
   }
   scope :reserved, -> { where('patient_id IS NOT NULL') }
 
