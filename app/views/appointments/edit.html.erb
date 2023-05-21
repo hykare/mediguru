@@ -7,15 +7,29 @@
   </div>
 
   <div class="modal w-full h-full bg-gray-800/10"></div>
-  <div class="modal bg-white p-6 border rounded-xl shadow-xl">
-    <p>Czy chcesz umówić tę wizytę?</p>
-    <%= @appointment.doctor.full_name %>
-    <%= @appointment.doctor.specialty.name %>
-    <%= @appointment.time_formatted %>
+  <div class="modal min-w-[24rem] bg-white p-6 border rounded-xl shadow-xl">
+    <div class="flex justify-between mb-4">
+      <div class="flex flex-col">
+        <p class="mb-2 text-gray-600">Czy chcesz umówić tę wizytę?</p>
+        <div>
+          <span class="text-lg font-semibold"><%= @appointment.doctor.full_name %></span>
+          <span class="ml-1 mb-0.5 bg-gray-100 dark:bg-gray-700 rounded-md px-2 py-1 font-normal text-gray-700 dark:text-gray-300">
+            <%= @appointment.doctor.specialty.name %>
+          </span>
+        </div>
+        <div class="flex gap-2">
+          <%= @appointment.date_formatted %>
+          <span>godz.</span>
+          <%= @appointment.time_formatted %>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-7 h-7 -mt-3 -mr-3 p-0.5 text-gray-500 bg-gray-200 rounded-full">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </div>
 
-    <%= button_tag 'x', class: "h-6 w-6 bg-gray-300 text-gray-500 rounded-full" %>
-
-    <%= form_with model: @appointment do |form |%>
+    <%= form_with model: @appointment, class: "flex flex-col" do |form |%>
 
       <%= form.text_area :body, rows: 3,
         class: "block resize-none p-2.5 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
@@ -24,7 +38,7 @@
 
       <%= form.hidden_field :patient_id, value: current_patient&.id %>
       <%= form.submit 'umów wizytę',
-        class: "text-white bg-teal-400 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        class: "self-end text-white bg-teal-400 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       %>
     <% end %>
   </div>
