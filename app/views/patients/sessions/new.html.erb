@@ -23,14 +23,14 @@
 
     <% if devise_mapping.rememberable? %>
       <div class="field text-normal flex items-center gap-2 mb-4">
-        <%= f.check_box :remember_me, class: "rounded-sm bg-gray-50 border-gray-300" %>
+        <%= f.check_box :remember_me, class: "rounded-sm bg-gray-50 border-gray-300 dark:bg-gray-600 dark:border-gray-500" %>
         <%= f.label :remember_me, 'Zapamiętaj mnie', class: "text-gray-800 dark:text-white" %>
       </div>
     <% end %>
 
     <div class="actions">
       <%= f.submit "Zaloguj",
-        class: "w-full text-white bg-teal-400 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-normal px-5 py-2.5 mt-1 mb-3 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        class: "w-full text-white bg-teal-400 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-normal px-5 py-2.5 mt-1 mb-3 text-center inline-flex items-center dark:bg-teal-600 dark:hover:bg-teal-500 dark:focus:ring-blue-800"
       %>
     </div>
   <% end %>
