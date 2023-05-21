@@ -30,6 +30,13 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @appointment = Appointment.find params[:id]
+    @appointment.patient = nil
+    @appointment.save
+    redirect_to patient_appointments_path
+  end
+
   def appointment_params
     params.require(:appointment).permit(:patient_id)
   end

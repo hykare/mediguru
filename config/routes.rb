@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :specialties, only: [:index]
 
-  resources :appointments, only: [:index, :edit, :update]
+  resources :appointments, only: [:index, :edit, :update, :destroy]
   get '/patient_appointments', to: 'appointments#patient_index'
 
   resources :doctors, only: [:index, :show]
