@@ -10,6 +10,10 @@ class Doctor < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 
+  after_create do |doctor|
+    FactoryBot.create(:schedule, doctor:)
+  end
+
   def as_json(_options = {})
     {
       first_name:,
