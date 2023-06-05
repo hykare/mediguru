@@ -3,7 +3,7 @@ specialties.each do |specialty|
   Specialty.create name: specialty.chomp
 end
 
-20.times do
+50.times do
   FactoryBot.create(:doctor_with_appointments)
 end
 
@@ -13,10 +13,10 @@ end
 
 Doctor.all.each do |doctor|
   # reserve some appointments
-  doctor.appointments.sample(4).each do |appointment|
+  doctor.appointments.sample(10).each do |appointment|
     appointment.patient_id = Patient.ids.sample
     appointment.save
   end
 
-  5.times { FactoryBot.create(:review, doctor:) }
+  rand(5..10).times { FactoryBot.create(:review, doctor:) }
 end

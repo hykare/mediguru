@@ -24,7 +24,7 @@ class DoctorsController < ApplicationController
     @doctor = current_doctor
 
     if @doctor.update(doctor_params)
-      render json: { message: "doctor info updated successfuly" }
+      render json: { message: "Doctor info updated successfuly" }
     else
       render json: { message: "Error: couldn't update doctor" }, status: :unprocessable_entity
     end
